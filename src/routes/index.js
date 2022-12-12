@@ -8,6 +8,9 @@ import LoginPage from "../pages/LoginPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import RegisterPage from "../pages/RegisterPage";
 import UserProfilePage from "../pages/UserProfilePage";
+import ArtistPage from "../pages/ArtistPage";
+import AlbumPage from "../pages/AlbumPage";
+import SearchPage from "../pages/SearchPage";
 
 function Router() {
   return (
@@ -15,7 +18,10 @@ function Router() {
       <Route path="/" element={<MainLayout />}>
         <Route index element={<Homepage />} />
         <Route path="account" element={<AccountPage />} />
-        <Route path="user/:userId" element={<UserProfilePage />} />
+        <Route path="artist/:id" element={<ArtistPage />} />
+        <Route path="album/:id" element={<AlbumPage />} />
+        <Route path="search" element={<SearchPage />} />
+        {/* <Route path="user/:userId" element={<UserProfilePage />} /> */}
       </Route>
 
       <Route element={<BlankLayout />}>
