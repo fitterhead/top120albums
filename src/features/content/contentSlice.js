@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export const getContent = createAsyncThunk("content", async () => {
-  const response = await apiService.get("/albumlist");
+  const response = await apiService.get("/album");
   return response;
 });
 
