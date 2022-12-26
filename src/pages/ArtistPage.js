@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getArtist } from "../features/content/contentSlice";
+import { getArtist, getContent } from "../features/content/contentSlice";
 function ArtistPage() {
   // const [data, setdata] = useState(second)
   const param = useParams();
@@ -33,8 +33,8 @@ function ArtistPage() {
       }}
     >
       {listArtist &&
-        listArtist[0]?.map((singleArtist) => {
-          if (singleArtist.artist === artistId) {
+        listArtist[0]?.data.data?.map((singleArtist) => {
+          if (singleArtist._id === artistId) {
             return (
               <Grid key={Math.random()} container sx={{ height: "100%" }}>
                 <Grid item xs={12} md={4}>

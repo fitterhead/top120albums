@@ -11,7 +11,7 @@ import { addAlbumToPlaylist } from "../../features/content/contentSlice";
 import { favouriteArtist } from "../../features/content/contentSlice";
 import CardMedia from "@mui/material/CardMedia";
 
-function ArtistAvatar({ bio, type }) {
+function AlbumCover({ bio, type }) {
   console.log("bio", bio);
   console.log("type", type);
   const dispatch = useDispatch();
@@ -27,7 +27,6 @@ function ArtistAvatar({ bio, type }) {
         sx={{
           width: "100%",
           maxHeight: "600px",
-          aspectRatio: "3/4",
           backgroundColor: "yellow",
         }}
       >
@@ -59,4 +58,4 @@ function ArtistAvatar({ bio, type }) {
   );
 }
 
-export default ArtistAvatar;
+export default AlbumCover;

@@ -6,7 +6,8 @@ import HomepagePagination from "../item/HomepagePagination";
 import AlbumList from "../item/AlbumList";
 import SingleAlbum from "../item/SingleAlbum";
 function AlbumRanking({ albums }) {
-  // console.log("listAlbum2", albums);
+  console.log("listAlbum2", albums);
+  // albums = albums[0].data.data
   return (
     <Container sx={{ bgcolor: "primary.main", height: "100%" }}>
       <Stack
@@ -23,8 +24,8 @@ function AlbumRanking({ albums }) {
             justifyContent="space-evenly"
             alignItems="center"
           >
-            {albums[0]?.map((album, index) => {
-              if (index <= 8) {
+            {albums[0]?.data.data?.map((album, index) => {
+              if (index <= 110) {
                 return <SingleAlbum key={Math.random()} album={album} />;
               }
             })}

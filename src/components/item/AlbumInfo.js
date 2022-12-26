@@ -2,9 +2,9 @@ import { Box, Grid, Paper } from "@mui/material";
 import Typography from "@mui/material/Typography";
 import { Container, Stack } from "@mui/system";
 import React from "react";
-import HomepagePagination from "../item/HomepagePagination";
+import HomepagePagination from "./HomepagePagination";
 import ItemCarousel from "./ItemCarousel";
-function ArtistBio({ bio }) {
+function AlbumInfo({ bio }) {
   console.log(bio, "biooooooo");
   return (
     <Box
@@ -24,7 +24,7 @@ function ArtistBio({ bio }) {
         <Box sx={{ width: "100%" }}>
           <Stack spacing={0.1} sx={{ padding: "2rem" }}>
             {/* <Typography variant="h2">OK COMPUTER</Typography> */}
-            <Typography variant="h1">{bio.artistName}</Typography>
+            <Typography variant="button">{bio.artistName}</Typography>
             <Typography variant="h1">{bio.album}</Typography>
             {/* <Typography variant="h1">1995</Typography> */}
           </Stack>
@@ -38,7 +38,7 @@ function ArtistBio({ bio }) {
             }}
           >
             <Typography variant="h7">Description</Typography>
-            <Typography variant="body3">{bio.biography}</Typography>
+            <Typography variant="body3">{bio.description}</Typography>
           </Stack>
         </Box>
         <Box sx={{ flexGrow: 1, height: "100%" }}>
@@ -52,4 +52,4 @@ function ArtistBio({ bio }) {
   );
 }
 
-export default ArtistBio;
+export default AlbumInfo;

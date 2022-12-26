@@ -14,11 +14,12 @@ import { useEffect } from "react";
 function Homepage() {
   const dispatch = useDispatch();
   const [data, setData] = useState("");
+  
   const listAlbum = useSelector((state) => state.content.contents);
 
   useEffect(() => {
     setData(dispatch(getContent()));
-  }, [dispatch]);
+  }, [ dispatch]);
 
   return (
     <Container
@@ -30,12 +31,10 @@ function Homepage() {
         "@media screen and (max-width: 600px)": { padding: "0rem" },
       }}
     >
-      <Grid container 
-      sx ={{backgroundColor:"red"}}
-      >
+          
+      <Grid container sx={{ backgroundColor: "red" }}>
         <Grid item xs={12} md={6}>
           <NumberOneAlbum />
-          {/* <Button onClick={() => dispatch(getContent())}>test</Button> */}
         </Grid>
         <Grid item xs={12} md={6}>
           {listAlbum && <AlbumRanking key={Math.random()} albums={listAlbum} />}

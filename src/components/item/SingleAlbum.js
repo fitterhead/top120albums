@@ -1,9 +1,20 @@
 import React from "react";
-import { Box, Grid, Paper } from "@mui/material";
+import { Box, Card, Grid, Paper } from "@mui/material";
 import { Stack } from "@mui/system";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import CardMedia from "@mui/material/CardMedia";
+
+import { getContent } from "../../features/content/contentSlice";
+import Button from "@mui/material/Button";
+import { useDispatch } from "react-redux";
+// import "./styles.css";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+
 function SingleAlbum({ album }) {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // tao handle click function
@@ -11,9 +22,13 @@ function SingleAlbum({ album }) {
     navigate(`/artist/${artistId}`);
   };
 
-  const handleALbumInfo = (artistId) => {
+  const handleAlbumInfo = (artistId) => {
     navigate(`/album/${artistId}`);
+    // dispatch(getContent({ query: artistId }));
   };
+
+  // const [query, setQuery] = useState("");
+
   return (
     <Grid item xs={6} md={4} padding={1}>
       <Box
@@ -23,7 +38,7 @@ function SingleAlbum({ album }) {
         }}
       >
         <Stack sx={{ height: "100%" }}>
-          <Box
+          <Card
             sx={{
               width: "100%",
               aspectRatio: "1/1",
@@ -31,20 +46,25 @@ function SingleAlbum({ album }) {
               backgroundColor: "gray",
             }}
           >
-            aaa
-          </Box>
+            <CardMedia
+              component="img"
+              height="100%"
+              image={`http://localhost:8000/static/image/${album.album}.jpg`}
+            />
+          </Card>
           <Box sx={{ width: "100%" }}>
             <Stack spacing={0.1} sx={{ padding: "0.5rem" }}>
               <Typography variant="body1">{album.ranking}</Typography>
               <Typography
-                onClick={() => handleArtistBio(`${album.artist}`)}
+                onClick={() => handleArtistBio(`${album.artistRef._id}`)}
                 variant="body2"
               >
-                {album.artist}
+                {/* <Button onClick={() => setQuery("superman")}>test</Button> */}
+                {album.artistName}
               </Typography>
               <Typography
                 // sx ={{padding:"2rem"}}
-                onClick={() => handleALbumInfo(`${album.ranking}`)}
+                onClick={() => handleAlbumInfo(`${album._id}`)}
                 variant="button"
               >
                 {album.album}
